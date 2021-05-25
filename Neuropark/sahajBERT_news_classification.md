@@ -16,7 +16,7 @@ metrics:
 -
 ---
 
-# MyModelName
+# sahajBERT News Category Classification
 
 ## Model description
 

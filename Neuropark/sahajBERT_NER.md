@@ -16,7 +16,7 @@ metrics:
 -
 ---
 
-# MyModelName
+# sahajBERT Named Entity Recognition
 
 ## Model description
 
