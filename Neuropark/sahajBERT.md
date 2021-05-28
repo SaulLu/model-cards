@@ -1,47 +1,88 @@
 ---
-language: 
-- 
--
+language: bn
 thumbnail: 
 tags:
-- 
--
-- 
-license: 
+- collaborative
+- bengali
+- albert
+- bangla
+license: apache-2.0
 datasets:
-- 
--
+- wikipedia
+- oscar
 metrics:
 - 
 -
+widget:
+- text: ধন্যবাদ। আপনার সাথে কথা [MASK] ভালো লাগলো
 ---
+<!-- TODO: change widget text -->
 
 # sahajBERT
 
+
+Collaboratively pre-trained model on Bengali language using masked language modeling (MLM) and Sentence Order Prediction (SOP) objectives. 
+
 ## Model description
 
-You can embed local or remote images using `![](...)`
+<!-- You can embed local or remote images using `![](...)` -->
+sahajBERT is a model composed of 1) a tokenizer specially designed for Bengali and an [ALBERT](https://arxiv.org/abs/1909.11942) architecture collaboratively pre-trained on a dump of Wikipedia in Bengali and the Bengali part of OSCAR. 
+<!-- Add more information about the collaborative training when we have time / preprint available -->
 
 ## Intended uses & limitations
 
+You can use the raw model for either masked language modeling or next sentence prediction, but it's mostly intended to be fine-tuned on a downstream task that use the whole sentence (potentially masked) to make decisions, such as sequence classification, token classification or question answering.
+
+We trained our model on 2 of these downstream tasks: [sequence classification](https://huggingface.co/neuropark/sahajBERT-NCC) and [token classification](https://huggingface.co/neuropark/sahajBERT-NER)
+
 #### How to use
 
+You can use this model directly with a pipeline for masked language modeling:
 ```python
-# You can include sample code which will be formatted
+from transformers import AlbertForMaskedLM, FillMaskPipeline, PreTrainedTokenizerFast
+
+# Initialize tokenizer
+tokenizer = PreTrainedTokenizerFast.from_pretrained("neuropark/sahajBERT")
+
+# Initialize model
+model = AlbertForMaskedLM.from_pretrained("neuropark/sahajBERT")
+
+# Initialize pipeline
+pipeline = FillMaskPipeline(tokenizer=tokenizer, model=model)
+
+raw_text = "ধন্যবাদ। আপনার সাথে কথা [MASK] ভালো লাগলো" # Change me
+pipeline(raw_text)
 ```
 
+Here is how to use this model to get the features of a given text in PyTorch:
+
+
+```python
+from transformers import AlbertModel, PreTrainedTokenizerFast
+
+# Initialize tokenizer
+tokenizer = PreTrainedTokenizerFast.from_pretrained("neuropark/sahajBERT")
+
+# Initialize model
+model = AlbertModel.from_pretrained("neuropark/sahajBERT")
+
+text = "ধন্যবাদ। আপনার সাথে কথা বলে ভালো লাগলো" # Change me
+encoded_input = tokenizer(text, return_tensors='pt')
+output = model(**encoded_input
+```
 #### Limitations and bias
 
-Provide examples of latent issues and potential remediations.
+<!-- Provide examples of latent issues and potential remediations. -->
+WIP
 
 ## Training data
 
-Describe the data you used to train the model.
-If you initialized it with pre-trained weights, add a link to the pre-trained model card or repository with description of the pre-training data.
+The tokenizer was trained on he Bengali part of OSCAR and the model on a [dump of Wikipedia in Bengali](https://huggingface.co/datasets/lhoestq/wikipedia_bn) and the Bengali part of [OSCAR](https://huggingface.co/datasets/oscar).
 
 ## Training procedure
 
-Preprocessing, hardware used, hyperparameters...
+This model was trained in a collaborative manner by volunteer participants. 
+<!-- Add more information about the collaborative training when we have time / preprint available + Preprocessing, hardware used, hyperparameters... (maybe use figures)-->
 
 ### Contributors leaderboard
 
@@ -92,10 +133,22 @@ Preprocessing, hardware used, hyperparameters...
 
 ## Eval results
 
+We evaluate sahajBERT model quality and 2 other model benchmarks ([XLM-R-large](https://huggingface.co/xlm-roberta-large)  and [IndicBert](https://huggingface.co/ai4bharat/indic-bert)) by fine-tuning 3 times their pre-trained models on two downstream tasks in Bengali:
+- **NER**: a named entity recognition on Wikiann~\cite{pan-etal-2017-cross} named entity recognition dataset 
+- **NCC**: a multi-class classification task on news Soham News Category Classification dataset from IndicGLUE
+
+
+| Base pretrained Model       | NER - F1 (mean ± std) | NCC - Accuracy (mean ± std)           |
+|:-------------:|:-------------:|:-------------:|
+|sahajBERT |  95.45 ± 0.53|  91.97 ± 0.47|
+|[XLM-R-large](https://huggingface.co/xlm-roberta-large) |  96.48 ± 0.22| 90.05 ± 0.38|
+|[IndicBert](https://huggingface.co/ai4bharat/indic-bert) |  92.52 ± 0.45| 74.46 ± 1.91|
+
 ### BibTeX entry and citation info
 
-```bibtex
+Coming soon! 
+<!-- ```bibtex
 @inproceedings{...,
   year={2020}
 }
-```
+``` ->
