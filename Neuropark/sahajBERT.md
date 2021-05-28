@@ -133,12 +133,22 @@ This model was trained in a collaborative manner by volunteer participants.
 
 ## Eval results
 
-WIP
+We evaluate sahajBERT model quality and 2 other model benchmarks ([XLM-R-large](https://huggingface.co/xlm-roberta-large)  and [IndicBert](https://huggingface.co/ai4bharat/indic-bert)) by fine-tuning 3 times their pre-trained models on two downstream tasks in Bengali:
+- **NER**: a named entity recognition on Wikiann~\cite{pan-etal-2017-cross} named entity recognition dataset 
+- **NCC**: a multi-class classification task on news Soham News Category Classification dataset from IndicGLUE
+
+
+| Base pretrained Model       | NER - F1 (mean ± std) | NCC - Accuracy (mean ± std)           |
+|:-------------:|:-------------:|:-------------:|
+|sahajBERT |  95.45 ± 0.53|  91.97 ± 0.47|
+|[XLM-R-large](https://huggingface.co/xlm-roberta-large) |  96.48 ± 0.22| 90.05 ± 0.38|
+|[IndicBert](https://huggingface.co/ai4bharat/indic-bert) |  92.52 ± 0.45| 74.46 ± 1.91|
 
 ### BibTeX entry and citation info
 
-```bibtex
+Coming soon! 
+<!-- ```bibtex
 @inproceedings{...,
   year={2020}
 }
-```
+``` ->
