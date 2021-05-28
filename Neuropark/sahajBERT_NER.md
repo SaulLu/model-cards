@@ -1,4 +1,3 @@
----
 language: bn
 tags:
 - collaborative
@@ -17,7 +16,7 @@ metrics:
 
 ## Model description
 
-[sahajBERT](https://huggingface.co/neuropark/sahajBERT-NER) fine-tuned for NER using the bengali of [WikiANN ](https://huggingface.co/datasets/wikiann). 
+[sahajBERT](https://huggingface.co/neuropark/sahajBERT-NER) fine-tuned for NER using the bengali split of [WikiANN ](https://huggingface.co/datasets/wikiann). 
 
 Named Entities predicted by the model:
 
@@ -59,7 +58,7 @@ WIP
 
 ## Training data
 
-The model was initialized it with pre-trained weights of [sahajBERT](https://huggingface.co/neuropark/sahajBERT-NER) at step TODO_REPLACE_BY_STEP_NAME and trained on the bengali of [WikiANN ](https://huggingface.co/datasets/wikiann)
+The model was initialized with pre-trained weights of [sahajBERT](https://huggingface.co/neuropark/sahajBERT-NER) at step TODO_REPLACE_BY_STEP_NAME and trained on the bengali split of [WikiANN ](https://huggingface.co/datasets/wikiann)
 
 ## Training procedure
 
