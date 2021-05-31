@@ -36,7 +36,7 @@ Collaboratively pre-trained model on Bengali language using masked language mode
 
 <!-- You can embed local or remote images using `![](...)` -->
 
-sahajBERT is a model composed of 1) a tokenizer specially designed for Bengali and an [ALBERT](https://arxiv.org/abs/1909.11942) architecture collaboratively pre-trained on a dump of Wikipedia in Bengali and the Bengali part of OSCAR. 
+sahajBERT is a model composed of 1) a tokenizer specially designed for Bengali and 2) an [ALBERT](https://arxiv.org/abs/1909.11942) architecture collaboratively pre-trained on a dump of Wikipedia in Bengali and the Bengali part of OSCAR. 
 
 <!-- Add more information about the collaborative training when we have time / preprint available -->
 
