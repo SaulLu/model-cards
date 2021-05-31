@@ -36,7 +36,7 @@ Collaboratively pre-trained model on Bengali language using masked language mode
 
 <!-- You can embed local or remote images using `![](...)` -->
 
-sahajBERT is a model composed of 1) a tokenizer specially designed for Bengali and an [ALBERT](https://arxiv.org/abs/1909.11942) architecture collaboratively pre-trained on a dump of Wikipedia in Bengali and the Bengali part of OSCAR. 
+sahajBERT is a model composed of 1) a tokenizer specially designed for Bengali and 2) an [ALBERT](https://arxiv.org/abs/1909.11942) architecture collaboratively pre-trained on a dump of Wikipedia in Bengali and the Bengali part of OSCAR. 
 
 <!-- Add more information about the collaborative training when we have time / preprint available -->
 
@@ -200,7 +200,7 @@ This model was trained in a collaborative manner by volunteer participants.
 
 We evaluate sahajBERT model quality and 2 other model benchmarks ([XLM-R-large](https://huggingface.co/xlm-roberta-large)  and [IndicBert](https://huggingface.co/ai4bharat/indic-bert)) by fine-tuning 3 times their pre-trained models on two downstream tasks in Bengali:
 
-- **NER**: a named entity recognition on bengali PAN-X split of [xtreme dataset](https://huggingface.co/datasets/xtreme) 
+- **NER**: a named entity recognition on Bengali split of [WikiANN](https://huggingface.co/datasets/wikiann) dataset
 
 - **NCC**: a multi-class classification task on news Soham News Category Classification dataset from IndicGLUE
 
