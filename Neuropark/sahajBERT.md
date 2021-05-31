@@ -200,7 +200,7 @@ This model was trained in a collaborative manner by volunteer participants.
 
 We evaluate sahajBERT model quality and 2 other model benchmarks ([XLM-R-large](https://huggingface.co/xlm-roberta-large)  and [IndicBert](https://huggingface.co/ai4bharat/indic-bert)) by fine-tuning 3 times their pre-trained models on two downstream tasks in Bengali:
 
-- **NER**: a named entity recognition on bengali PAN-X split of [xtreme dataset](https://huggingface.co/datasets/xtreme) 
+- **NER**: a named entity recognition on Bengali split of [WikiANN](https://huggingface.co/datasets/wikiann) dataset
 
 - **NCC**: a multi-class classification task on news Soham News Category Classification dataset from IndicGLUE
 
